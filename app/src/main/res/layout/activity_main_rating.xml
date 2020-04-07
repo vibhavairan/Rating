@@ -44,5 +44,5 @@
         android:layout_height="wrap_content"
         android:id="@+id/database"
         android:layout_marginTop="10dp"
-        android:text="Database"/>
+        android:text="Show Ratings"/>
 </LinearLayout>

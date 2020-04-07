@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView lower, upper;
     SeekBar lowerSeek, upperSeek;
     int lowerLimit,upperLimit=9;
-    Button range;
+    Button range, database;
     boolean flag = false;
 
     @Override
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         lowerSeek = findViewById(R.id.lowerSeekBar);
         upperSeek = findViewById(R.id.upperSeekBar);
         range = findViewById(R.id.range);
+        database = findViewById(R.id.database);
         lowerSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 upper.setText(s);
                 String m = "Rating <"+ lowerLimit + " - "+ upperLimit +">";
                 range.setText(m);
+                upperLimit = lowerLimit+1;
+                flag = true;
             }
         });
 
@@ -68,9 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                flag = true;
-                String s = "Rating <"+ lowerLimit + " - "+ upperLimit +">";
-                range.setText(s);
+                if(flag) {
+                    String s = "Rating <"+ lowerLimit + " - "+ upperLimit +">";
+                    range.setText(s);
+                }
             }
         });
 
@@ -81,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     flag = true;
                     upperLimit = 9;
                 }
-                if(flag) {
-                    Toast.makeText(MainActivity.this,lowerLimit+" - "+upperLimit,Toast.LENGTH_SHORT).show();
+                if(flag&&lowerLimit<upperLimit) {
                     Intent intent = new Intent(MainActivity.this, MainRating.class);
                     Bundle extras = new Bundle();
                     extras.putInt("lower",lowerLimit);
@@ -92,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(MainActivity.this,"Choose both limits!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        database.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Fetching data from Firebase", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, ShowRatings.class));
             }
         });
     }

@@ -62,5 +62,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/range"
         android:layout_marginTop="30dp"
-        android:text="Range"/>
+        android:text="Rating"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/database"
+        android:layout_marginTop="10dp"
+        android:text="Show Ratings"/>
 </LinearLayout>

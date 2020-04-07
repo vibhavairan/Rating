@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lowerTxt"
+        android:layout_marginTop="100dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="Select Lower Limit"/>
+    <TextView
+        android:id="@+id/lower"
+        android:layout_width="match_parent"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="0" />
+
+    <SeekBar
+        android:id="@+id/lowerSeekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:max="8"
+        android:progress="0" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/upperTxt"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:text="Select Upper limit"/>
+
+    <TextView
+        android:id="@+id/upper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="80sp"
+        android:gravity="center"
+        android:text="-"/>
+
+    <SeekBar
+        android:id="@+id/upperSeekBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:max="0"
+        android:progress="0" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/range"
+        android:layout_marginTop="30dp"
+        android:text="Range"/>
+</LinearLayout>

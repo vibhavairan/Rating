@@ -84,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
                 if(flag) {
                     Toast.makeText(MainActivity.this,lowerLimit+" - "+upperLimit,Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, MainRating.class);
+                    Bundle extras = new Bundle();
+                    extras.putInt("lower",lowerLimit);
+                    extras.putInt("upper",upperLimit);
+                    intent.putExtras(extras);
                     startActivity(intent);
                 }
                 else
